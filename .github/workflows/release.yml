@@ -17,22 +17,22 @@ jobs:
         sudo apt-get install git tree -y
     - name: Prepare git
       run: |
-        git config --global user.name ${{ secrets.GITHUB_TOKEN }}
+        git config --global user.name ${{ github.actor }}
         git config --global user.email 'help@castellanidavide.it'
     - name: Update core-createstructure
       run: |
-        git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/createstructure/core-createstructure.git
+        git clone https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/createstructure/core-createstructure.git
         cd core-createstructure
         git submodule update --init --remote --recursive --merge
         git add *
         git commit -m "Update librerias"
-        git push https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/createstructure/core-createstructure.git
+        git push https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/createstructure/core-createstructure.git
     - name: Update manager-createstructure
       run: |
-        git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/createstructure/manager-createstructure.git
+        git clone https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/createstructure/manager-createstructure.git
         cd manager-createstructure
         git submodule update --init --remote --recursive --merge
         git add *
         git commit -m "Update librerias"
-        git push https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/createstructure/manager-createstructure.git
+        git push https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/createstructure/manager-createstructure.git
       
