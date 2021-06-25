@@ -46,8 +46,8 @@ Repo containing the library used by [core-createstructure](https://github.com/cr
 ```
 
 ---
-Made by Castellani Davide 
+Made w/ :love: by Castellani Davide 
 If you have any problem please contact me:
-  - [Discussion](https://github.com/createstructure/createstructure/discussions)
-  - [Issue](https://github.com/createstructure/createstructure/issues) 
-  - [help@castellanidavide.it](mailto:help@castellanidavide.it)
+- [Discussion](https://github.com/createstructure/createstructure/discussions/new) and choose "libraries-createstructure" category
+- [Issue](https://github.com/createstructure/libraries-createstructure/issues/new)
+- [help@castellanidavide.it](mailto:help@castellanidavide.it)
