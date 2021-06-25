@@ -1,4 +1,4 @@
-name: Publish Docker
+name: Publish librerias
 on:
   release:
     types: [published]
