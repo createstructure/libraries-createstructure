@@ -4,7 +4,7 @@
 
 #ifndef CREATESTRUCTURE
 // If not imported yet
-# define CREATESTUCTURE
+#define CREATESTUCTURE
 
 // Dependencies
 #include <bits/stdc++.h>
