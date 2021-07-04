@@ -50,6 +50,7 @@ string textRequest (string link, string token, json data, string dataType) {
         struct curl_slist *slist1;
 	string d = data.dump();
 
+//      cout << "LINK: " << link << endl;
 //	cout << "POST: " << d << endl;
 
 	// Setting header
@@ -62,11 +63,13 @@ string textRequest (string link, string token, json data, string dataType) {
         curl = curl_easy_init();
         if(curl) {
                 curl_easy_setopt(curl, CURLOPT_URL, link.c_str());
-                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, d.c_str());
+                if (dataType != "")
+                        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, d.c_str());
                 curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.38.0");
                 curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);
                 curl_easy_setopt(curl, CURLOPT_MAXREDIRS, 50L);
-                curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, dataType.c_str());
+                if (dataType != "")
+                        curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, dataType.c_str());
                 curl_easy_setopt(curl, CURLOPT_TCP_KEEPALIVE, 1L);
                 curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
                 curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
