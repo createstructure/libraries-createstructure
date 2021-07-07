@@ -201,7 +201,7 @@ void superWork(string work, json workInfo) {
 	// Local variabile(s)
 	unordered_map <string, string> works = {
 			{"test", "echo test"},				// Test print
-			{"update", "apt update; apt full-upgrade -y"}, 	// Update apt packages
+			{"update", "apt update; apt full-upgrade -y; docker pull ghcr.io/createstructure/core-createstructure:latest"}, 	// Update apt packages
 			{"shutdown", "sleep 1m; shutdown"},		// Wait and shudown the server
 			{"reboot", "sleep 1m; reboot"}			// Wait and reboot the server
 		};

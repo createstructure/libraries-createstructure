@@ -23,6 +23,7 @@ long long int usedMemory();
 long long int freeMemory();
 double percentageMemory();
 bool okMemory();
+void waitUntilOkMemory();
 
 // Function(s)
 long long int totalMemory() {
@@ -93,4 +94,12 @@ bool okMemory() {
 	return percentageMemory() < 90;
 }
 
+void waitUntilOkMemory() {
+        /* Wait Until OK Memory: Wait until the memory it is ok
+         */
+        if (percentageMemory() > 50 || !okMemory())
+                while (!okMemory()) {
+                        sleep_for(1s);
+                }
+}
 #endif
