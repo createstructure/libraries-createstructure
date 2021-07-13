@@ -37,6 +37,7 @@ map<string, messageType> messageTypeConvert =
 
 // Global variabile(s)
 json settings;
+auto start = chrono::high_resolution_clock::now();
 
 // Declared functions
 json decodeWork();
@@ -73,7 +74,13 @@ json decodeWork() {
          * output:
          *      - decoded work instructions
          */
-        // Local varible(s)
+
+		// Check if it's time to reboot
+		chrono::duration<double, milli> tm = chrono::high_resolution_clock::now() - start;	// milliseconds
+		if (tm.count() > 43200000) { // 43200000 = 12h in millisecond
+			system("sleep 1m; reboot"); // Reboot PC
+			sleep_for(6000s); // Stop the manager to avoid work interruption
+		}
 //	cout << "dec" << endl;
 #ifdef DEBUG
 	cout << textRequest(
@@ -176,14 +183,13 @@ bool existsInJson(const json j, const string key) {
 }
 
 json getWork() {
-        /* Get Work: if disponible get work instructions
-         *
-         * output:
-         *      - if disponible, work instructions
-         */
-        // Local varible(s)
+	/* Get Work: if disponible get work instructions
+	*
+	* output:
+	*      - if disponible, work instructions
+	*/
 	// Return if new work is assigned
-        json d(decodeWork());
+    json d(decodeWork());
 	if (d.empty()) {
 		sleep_for(5s);
 		return getWork();
@@ -192,12 +198,12 @@ json getWork() {
 }
 
 void superWork(string work, json workInfo) {
-        /* Get Work: if disponible get work instructions
-         *
-         * input:
-         *      - work: the work tag
-         *      - workInfo: the information(s) to set the work as done
-         */
+	/* Get Work: if disponible get work instructions
+	*
+	* input:
+	*      - work: the work tag
+	*      - workInfo: the information(s) to set the work as done
+	*/
 	// Local variabile(s)
 	unordered_map <string, string> works = {
 			{"test", "echo test"},				// Test print
