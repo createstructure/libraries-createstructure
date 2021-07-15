@@ -77,7 +77,7 @@ json decodeWork() {
 
 		// Check if it's time to reboot
 		chrono::duration<double, milli> tm = chrono::high_resolution_clock::now() - start;	// milliseconds
-		if (tm.count() > 43200000) { // 43200000 = 12h in millisecond
+		if (tm.count() > 60 * 1000) { // 43200000 = 12h in millisecond
 			system("sleep 1m; reboot"); // Reboot PC
 			sleep_for(6000s); // Stop the manager to avoid work interruption
 		}
