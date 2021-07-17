@@ -20,18 +20,20 @@ using json = nlohmann::json;
 
 // Declared functions
 size_t WriteCallback(char *contents, size_t size, size_t nmemb, void *userp);
-string textRequest (string link, string token, json data, string dataType);
-json jsonRequest (string link, string token, json data, string dataType);
-void request (string link, string token, json data, string dataType);
+string textRequest(string link, string token, json data, string dataType);
+json jsonRequest(string link, string token, json data, string dataType);
+void request(string link, string token, json data, string dataType);
 
 // Function(s)
-size_t WriteCallback(char *contents, size_t size, size_t nmemb, void *userp) {
-    ((string*)userp)->append((char*)contents, size * nmemb);
-    return size * nmemb;
+size_t WriteCallback(char *contents, size_t size, size_t nmemb, void *userp)
+{
+        ((string *)userp)->append((char *)contents, size * nmemb);
+        return size * nmemb;
 }
 
-string textRequest (string link, string token, json data, string dataType) {
-	/* Text Request: do a web call
+string textRequest(string link, string token, json data, string dataType)
+{
+        /* Text Request: do a web call
          *
          * inputs:
          *      - link: the link of the web request
@@ -44,24 +46,25 @@ string textRequest (string link, string token, json data, string dataType) {
          */
 
         // Function variable(s)
-	CURL *curl;
+        CURL *curl;
         CURLcode res;
         string readBuffer;
         struct curl_slist *slist1;
-	string d = data.dump();
+        string d = data.dump();
 
-//      cout << "LINK: " << link << endl;
-//	cout << "POST: " << d << endl;
+        //      cout << "LINK: " << link << endl;
+        //	cout << "POST: " << d << endl;
 
-	// Setting header
+        // Setting header
         slist1 = NULL;
-	if (token != "")
-	        slist1 = curl_slist_append(slist1, (string("Authorization: token ") + token).c_str());
+        if (token != "")
+                slist1 = curl_slist_append(slist1, (string("Authorization: token ") + token).c_str());
         slist1 = curl_slist_append(slist1, "Content-Type: application/json");
 
-	// Setup curl call
+        // Setup curl call
         curl = curl_easy_init();
-        if(curl) {
+        if (curl)
+        {
                 curl_easy_setopt(curl, CURLOPT_URL, link.c_str());
                 if (dataType != "")
                         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, d.c_str());
@@ -77,12 +80,13 @@ string textRequest (string link, string token, json data, string dataType) {
                 curl_easy_cleanup(curl);
         }
 
-	// Return the output string
-	return readBuffer;
+        // Return the output string
+        return readBuffer;
 }
 
-json jsonRequest (string link, string token, json data, string dataType) {
-	/* Text Request: do a web call
+json jsonRequest(string link, string token, json data, string dataType)
+{
+        /* Text Request: do a web call
          *
          * inputs:
          *      - link: the link of the web request
@@ -94,11 +98,12 @@ json jsonRequest (string link, string token, json data, string dataType) {
          *      - the web response in json format
          */
 
-	return json::parse(textRequest(link, token, data, dataType));
+        return json::parse(textRequest(link, token, data, dataType));
 }
 
-void request (string link, string token, json data, string dataType) {
-	/* Text Request: do a web call
+void request(string link, string token, json data, string dataType)
+{
+        /* Text Request: do a web call
          *
          * inputs:
          *      - link: the link of the web request
@@ -106,7 +111,7 @@ void request (string link, string token, json data, string dataType) {
          *      - data: the data of the request in json format
          *      - dataType: the mode to send data (POST / GET)
          */
-	textRequest(link, token, data, dataType);
+        textRequest(link, token, data, dataType);
 }
 
 #endif

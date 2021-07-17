@@ -19,7 +19,8 @@ using namespace std;
 vector<string> split(string str, string del);
 
 // Function(s)
-vector <string> split (string str, string del) {
+vector<string> split(string str, string del)
+{
         /* Split: split a string by a delimitator
          *
          * inputs:
@@ -30,11 +31,12 @@ vector <string> split (string str, string del) {
          *      - a vector containing the pieces of the slitted string
          */
         // Local varible(s)
-        vector <string> splitted;
+        vector<string> splitted;
         size_t pos;
 
         // Split
-        while ((pos = str.find(del)) != string::npos) {
+        while ((pos = str.find(del)) != string::npos)
+        {
                 splitted.push_back(str.substr(0, pos));
                 str.erase(0, pos + del.length());
         }
@@ -43,6 +45,5 @@ vector <string> split (string str, string del) {
         // Return
         return splitted;
 }
-
 
 #endif

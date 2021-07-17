@@ -19,28 +19,27 @@ using namespace std;
 void upload(string link, string pos);
 
 // Function(s)
-void upload(string link, string pos) {
+void upload(string link, string pos)
+{
         /* Split: split a string by a delimitator
          *
          * inputs:
          *      - link: repo link
          *      - pos: local position
          */
-	system((
-                string("cd ") +
-                pos +
-                string("; ") +
-                string("rm -rf .git; ") +
-		string("git init; ") +
-		string("git branch -M main; ") +
-		string("git add *; ") +
-		string("git commit -m \"createstructure\"; ") +
-		string("git push ") +
-		link +
-                string(" HEAD:main --set-upstream --force")
-        ).c_str());
-
+        system((
+                   string("cd ") +
+                   pos +
+                   string("; ") +
+                   string("rm -rf .git; ") +
+                   string("git init; ") +
+                   string("git branch -M main; ") +
+                   string("git add *; ") +
+                   string("git commit -m \"createstructure\"; ") +
+                   string("git push ") +
+                   link +
+                   string(" HEAD:main --set-upstream --force"))
+                   .c_str());
 }
-
 
 #endif

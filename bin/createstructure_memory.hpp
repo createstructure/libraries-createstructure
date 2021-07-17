@@ -27,79 +27,86 @@ bool okMemory();
 void waitUntilOkMemory();
 
 // Function(s)
-long long int totalMemory() {
+long long int totalMemory()
+{
         /* Total Memory: return the total amount of RAM
          *
          * output:
          *      - the total amount of RAM
          */
         // Local varible(s)
-	struct sysinfo memInfo;
+        struct sysinfo memInfo;
 
-	// Get info struct
-	sysinfo (&memInfo);
+        // Get info struct
+        sysinfo(&memInfo);
 
-	// Return
-	return memInfo.totalram * memInfo.mem_unit;
+        // Return
+        return memInfo.totalram * memInfo.mem_unit;
 }
 
-long long int usedMemory() {
+long long int usedMemory()
+{
         /* Used Memory: return the used amount of RAM
          *
          * output:
          *      - the used amount of RAM
          */
         // Local varible(s)
-	struct sysinfo memInfo;
+        struct sysinfo memInfo;
 
-	// Get info struct
-	sysinfo (&memInfo);
+        // Get info struct
+        sysinfo(&memInfo);
 
-	// Return
-	return (memInfo.totalram - memInfo.freeram) * memInfo.mem_unit;
+        // Return
+        return (memInfo.totalram - memInfo.freeram) * memInfo.mem_unit;
 }
 
-long long int freeMemory() {
+long long int freeMemory()
+{
         /* Free Memory: return the free amount of RAM
          *
          * output:
          *      - the free amount of RAM
          */
         // Local varible(s)
-	struct sysinfo memInfo;
+        struct sysinfo memInfo;
 
-	// Get info struct
-	sysinfo (&memInfo);
+        // Get info struct
+        sysinfo(&memInfo);
 
-	// Return
-	return memInfo.freeram * memInfo.mem_unit;
+        // Return
+        return memInfo.freeram * memInfo.mem_unit;
 }
 
-double percentageMemory() {
+double percentageMemory()
+{
         /* Percentage Memory: return the percentage of the use of RAM
          *
          * output:
          *      - the percentage of the use of RAM
          */
-	// Return
-	return (double) usedMemory() / (double) totalMemory() * 100;
+        // Return
+        return (double)usedMemory() / (double)totalMemory() * 100;
 }
 
-bool okMemory() {
+bool okMemory()
+{
         /* OK Memory: return if it's ok to run another docker (if percentage memory is under the 90%)
          *
          * output:
          *      - if it's ok to run another docker (if percentage memory is under the 90%)
          */
-	// Return
-	return percentageMemory() < 90;
+        // Return
+        return percentageMemory() < 90;
 }
 
-void waitUntilOkMemory() {
+void waitUntilOkMemory()
+{
         /* Wait Until OK Memory: Wait until the memory it is ok
          */
         if (percentageMemory() > 50 || !okMemory())
-                while (!okMemory()) {
+                while (!okMemory())
+                {
                         sleep_for(1s);
                 }
 }

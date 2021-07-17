@@ -16,10 +16,11 @@ using namespace std;
 // #define DEBUG
 
 // Declared functions
-string replace(string original, vector <pair<string, string> > changes);
+string replace(string original, vector<pair<string, string>> changes);
 
 // Function(s)
-string replace(string original, vector <pair<string, string> > changes) {
+string replace(string original, vector<pair<string, string>> changes)
+{
         /* Replace: changes a string using a vector of changes
          *
          * inputs:
@@ -34,62 +35,59 @@ string replace(string original, vector <pair<string, string> > changes) {
         size_t pos = 0;
         bool others = true;
 
-        while (others) {
+        while (others)
+        {
                 // Local variable(s)
                 pair<string, string> change;
                 int bestPos = pos - 1;
 
                 // For every possible change
-                for (size_t i = 0; i < changes.size(); ++i) {
+                for (size_t i = 0; i < changes.size(); ++i)
+                {
                         // Local varible(s)
                         int tmpPos = pos - 1;
-			int tmp;
+                        int tmp;
 
                         // Check the first result if there is once
-			do {
-				tmpPos = (
-						(
-							tmp = original.find(
-								changes[i].first,
-								(tmpPos + 1 < 0) ?
-									0 :
-									(tmpPos + 1)
-							)
-						) == string::npos
-					) ?
-						-1 :
-						tmp;
-							/*original.find(
+                        do
+                        {
+                                tmpPos = ((
+                                              tmp = original.find(
+                                                  changes[i].first,
+                                                  (tmpPos + 1 < 0) ? 0 : (tmpPos + 1))) == string::npos)
+                                             ? -1
+                                             : tmp;
+                                /*original.find(
 								changes[i].first,
 								(tmpPos + 1 < 0) ?
 									0 :
 									(tmpPos + 1)
 							);*/
                         } while (
-				tmpPos == -1 - 1 &&
-				(
-					tmpPos < 0 + 3 ||
-					tmpPos > original.size() - 3 ||
-					original.substr(
-						tmpPos - 3,
-						changes[i].first.size() + 6
-					) == "sol" + changes[i].first + "sol"
-				)
-			);
+                            tmpPos == -1 - 1 &&
+                            (tmpPos < 0 + 3 ||
+                             tmpPos > original.size() - 3 ||
+                             original.substr(
+                                 tmpPos - 3,
+                                 changes[i].first.size() + 6) == "sol" + changes[i].first + "sol"));
 
                         // cout << changes[i].first << "\t" << tmpPos << "\t" << bestPos << endl; // Attention: this will do lots of prints
 
                         // Check if it's the best one
-                        if (tmpPos > -1 && (tmpPos < bestPos || bestPos == pos - 1)) {
+                        if (tmpPos > -1 && (tmpPos < bestPos || bestPos == pos - 1))
+                        {
                                 bestPos = tmpPos;
                                 change = changes[i];
                         }
                 }
 
                 // Check if there is a change to do
-                if (bestPos == pos - 1) {
+                if (bestPos == pos - 1)
+                {
                         others = false;
-                } else {
+                }
+                else
+                {
 #ifdef DEBUG
                         cout << "Changed at: " << bestPos << endl;
 #endif // DEBUG
@@ -101,6 +99,5 @@ string replace(string original, vector <pair<string, string> > changes) {
         // Give back the changed string
         return original;
 }
-
 
 #endif

@@ -18,14 +18,15 @@ using json = nlohmann::json;
 // #define DEBUG
 
 // Declared functions
-vector< pair <string, string> > getChanges(json inputs, string changesFilename);
-vector< pair <string, string> > getSpecialChanges(json inputs);
-struct tm* initData ();
-string getData(struct tm* data, string pattern);
+vector<pair<string, string>> getChanges(json inputs, string changesFilename);
+vector<pair<string, string>> getSpecialChanges(json inputs);
+struct tm *initData();
+string getData(struct tm *data, string pattern);
 
 // Function(s)
-vector< pair <string, string> > getChanges (json inputs, string changesFilename) {
-        /* Get Changes: return the vector containing all the changes
+vector<pair<string, string>> getChanges(json inputs, string changesFilename)
+{
+	/* Get Changes: return the vector containing all the changes
          *
 	 * inputs:
 	 * 	- inputs: a json object containing the args given as input
@@ -34,76 +35,78 @@ vector< pair <string, string> > getChanges (json inputs, string changesFilename)
          * output:
          *      - a vector containing all the changes
          */
-        // Local varible(s)
-        vector <pair <string, string> > myChange;
-        vector <pair <string, string> > mySpecialChange = getSpecialChanges(inputs);
+	// Local varible(s)
+	vector<pair<string, string>> myChange;
+	vector<pair<string, string>> mySpecialChange = getSpecialChanges(inputs);
 
-        // Get file and convert to json
-        ifstream t(changesFilename);
-        string strChanges((istreambuf_iterator<char>(t)), istreambuf_iterator<char>());
-        json jsonChanges = json::parse(strChanges);
+	// Get file and convert to json
+	ifstream t(changesFilename);
+	string strChanges((istreambuf_iterator<char>(t)), istreambuf_iterator<char>());
+	json jsonChanges = json::parse(strChanges);
 
-        // Put changes to the vector
-        for (auto& [key, value] : jsonChanges.items()) {
-                myChange.push_back(make_pair(key, replace(value, mySpecialChange)));
+	// Put changes to the vector
+	for (auto &[key, value] : jsonChanges.items())
+	{
+		myChange.push_back(make_pair(key, replace(value, mySpecialChange)));
 #ifdef DEBUG
-                cout << myChange[myChange.size() - 1].first << " -> " << myChange[myChange.size() - 1].second << endl;
+		cout << myChange[myChange.size() - 1].first << " -> " << myChange[myChange.size() - 1].second << endl;
 #endif // DEBUG
-        }
+	}
 
-        return myChange;
+	return myChange;
 }
 
-vector< pair <string, string> > getSpecialChanges(json inputs) {
-        /* Get Special Changes: return the vector containing all the special changes
+vector<pair<string, string>> getSpecialChanges(json inputs)
+{
+	/* Get Special Changes: return the vector containing all the special changes
          *
          * output:
          *      - a vector containing all the special changes
          */
-        // Function variable(s)
-	struct tm* data = initData();
+	// Function variable(s)
+	struct tm *data = initData();
 
 	// Return
-	return	{
-			// Input special changes
-			{"username", inputs["username"].get<string>()},
-			{"solnamesol", inputs["answers"]["name"].get<string>()},
-			{"soldescrsol", inputs["answers"]["descr"].get<string>()},
-			{"solprefixsol", inputs["answers"]["prefix"].get<string>()},
-			{"solisorgsol", (inputs["answers"]["isOrg"].get<bool>() ? "true" : "false")},
-			{"solownersol", (inputs["answers"]["isOrg"].get<bool>() ?  inputs["answers"]["org"].get<string>() : inputs["username"].get<string>())},
-			{"solteamsol", inputs["answers"]["team"].get<string>()},
-			{"soltemplatesol", inputs["answers"]["template"].get<string>()},
-			{"solprivatesol", (inputs["answers"]["private"].get<bool>() ? "true" : "false")},
+	return {
+		// Input special changes
+		{"username", inputs["username"].get<string>()},
+		{"solnamesol", inputs["answers"]["name"].get<string>()},
+		{"soldescrsol", inputs["answers"]["descr"].get<string>()},
+		{"solprefixsol", inputs["answers"]["prefix"].get<string>()},
+		{"solisorgsol", (inputs["answers"]["isOrg"].get<bool>() ? "true" : "false")},
+		{"solownersol", (inputs["answers"]["isOrg"].get<bool>() ? inputs["answers"]["org"].get<string>() : inputs["username"].get<string>())},
+		{"solteamsol", inputs["answers"]["team"].get<string>()},
+		{"soltemplatesol", inputs["answers"]["template"].get<string>()},
+		{"solprivatesol", (inputs["answers"]["private"].get<bool>() ? "true" : "false")},
 
-			// Data special changes
-		        {"soltime-nowsol", getData(data, string("%Y-%m-%d"))},
-		        {"soltime_nowsol", getData(data, string("%Y_%m_%d"))},
-		        {"soltimenowsol", getData(data, string("%Y%m%d"))},
-		        {"soltimeallsol", getData(data, string("%c"))},
-		        {"soltimeHMSsol", getData(data, string("%H%M%s"))},
-		        {"soltimeH-M-Ssol", getData(data, string("%H-%M-%S"))},
-		        {"soltimeH_M_Ssol", getData(data, string("%H_%M_%S"))},
-		        {"soltimeyearsol", getData(data, string("%Y"))},
-		        {"soltimeyearshortsol", getData(data, string("%y"))},
-		        {"soltimemonthsol", getData(data, string("%B"))},
-		        {"soltimemonthshortsol", getData(data, string("%b"))},
-		        {"soltimemonthnumsol", getData(data, string("%m"))},
-		        {"soltimeweekofyearsol", getData(data, string("%U"))},
-		        {"soltimedaysol", getData(data, string("%d"))},
-		        {"soltimedayofyearsol", getData(data, string("%j"))},
-		        {"soltimedayofweeksol", getData(data, string("%A"))},
-		        {"soltimedayofweekshortsol", getData(data, string("%a"))},
-		        {"soltimehoursol", getData(data, string("%H"))},
-		        {"soltimehour12sol", getData(data, string("%I"))},
-		        {"soltimeminutesol", getData(data, string("%M"))},
-		        {"soltimesecondsol", getData(data, string("%S"))},
-		        {"soltimeoffsetsol", getData(data, string("%z"))}
-		};
+		// Data special changes
+		{"soltime-nowsol", getData(data, string("%Y-%m-%d"))},
+		{"soltime_nowsol", getData(data, string("%Y_%m_%d"))},
+		{"soltimenowsol", getData(data, string("%Y%m%d"))},
+		{"soltimeallsol", getData(data, string("%c"))},
+		{"soltimeHMSsol", getData(data, string("%H%M%s"))},
+		{"soltimeH-M-Ssol", getData(data, string("%H-%M-%S"))},
+		{"soltimeH_M_Ssol", getData(data, string("%H_%M_%S"))},
+		{"soltimeyearsol", getData(data, string("%Y"))},
+		{"soltimeyearshortsol", getData(data, string("%y"))},
+		{"soltimemonthsol", getData(data, string("%B"))},
+		{"soltimemonthshortsol", getData(data, string("%b"))},
+		{"soltimemonthnumsol", getData(data, string("%m"))},
+		{"soltimeweekofyearsol", getData(data, string("%U"))},
+		{"soltimedaysol", getData(data, string("%d"))},
+		{"soltimedayofyearsol", getData(data, string("%j"))},
+		{"soltimedayofweeksol", getData(data, string("%A"))},
+		{"soltimedayofweekshortsol", getData(data, string("%a"))},
+		{"soltimehoursol", getData(data, string("%H"))},
+		{"soltimehour12sol", getData(data, string("%I"))},
+		{"soltimeminutesol", getData(data, string("%M"))},
+		{"soltimesecondsol", getData(data, string("%S"))},
+		{"soltimeoffsetsol", getData(data, string("%z"))}};
 }
 
-struct tm* initData () {
-        /* Init Data: initialize the data information
+struct tm *initData()
+{
+	/* Init Data: initialize the data information
          *
          * output:
          *      - a data structure
@@ -111,12 +114,13 @@ struct tm* initData () {
 	// Function variabile(s)
 	time_t rawtime;
 
-	time (&rawtime);
+	time(&rawtime);
 	return localtime(&rawtime);
 }
 
-string getData(struct tm* data, string pattern) {
-        /* Get Data: return the data info
+string getData(struct tm *data, string pattern)
+{
+	/* Get Data: return the data info
          *
 	 * inputs:
 	 * 	- data: the data indicator

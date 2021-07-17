@@ -21,8 +21,9 @@ using json = nlohmann::json;
 bool inputCheck(json input);
 
 // Function(s)
-bool inputCheck(json input) {
-        /* Input Check: split a string by a delimitator
+bool inputCheck(json input)
+{
+	/* Input Check: split a string by a delimitator
          *
          * inputs:
          *      - input: the input to scan
@@ -30,7 +31,8 @@ bool inputCheck(json input) {
          * output:
          *      - true only if the input is ok
          */
-	try {
+	try
+	{
 		// Check if there are all the requirements
 		input["username"].get<string>();
 		input["token"].get<string>();
@@ -40,17 +42,18 @@ bool inputCheck(json input) {
 		input["answers"]["name"].get<string>();
 		input["answers"]["descr"].get<string>();
 		input["answers"]["prefix"].get<string>();
-		if(input["answers"]["isOrg"].get<bool>())
+		if (input["answers"]["isOrg"].get<bool>())
 			input["answers"]["org"].get<string>();
 		input["answers"]["team"].get<string>();
 		input["answers"]["template"].get<string>();
 		input["answers"]["private"].get<bool>();
-	} catch (...) {
+	}
+	catch (...)
+	{
 		return false;
 	}
 
 	return true;
 }
-
 
 #endif

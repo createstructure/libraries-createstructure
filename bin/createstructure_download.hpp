@@ -19,23 +19,22 @@ using namespace std;
 void download(string link, string position);
 
 // Function(s)
-void download(string link, string position) {
-        /* Download: downloads the GitHub repo
+void download(string link, string position)
+{
+	/* Download: downloads the GitHub repo
          *
          * inputs:
          *      - link: the link of the repo
          *      - position: the position to download the repo
          */
-        // Local varible(s)
+	// Local varible(s)
 	system(
-			(
-				string("git clone ") +
-				link +
-				string(" ") +
-				position
-			).c_str()
-		);
+		(
+			string("git clone ") +
+			link +
+			string(" ") +
+			position)
+			.c_str());
 }
-
 
 #endif

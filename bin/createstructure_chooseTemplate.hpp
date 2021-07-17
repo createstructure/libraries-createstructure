@@ -18,12 +18,13 @@ using json = nlohmann::json;
 // #define DEBUG
 
 // Declared functions
-bool hasInit (string fullString, string init);
-bool hasEnding (string fullString, string ending);
-string chooseTemplate (string givenTemplate, string token, string username);
+bool hasInit(string fullString, string init);
+bool hasEnding(string fullString, string ending);
+string chooseTemplate(string givenTemplate, string token, string username);
 
 // Function(s)
-bool hasInit (string fullString, string init) {
+bool hasInit(string fullString, string init)
+{
 	/* Choose Template: get the url of the choosed template
          *
          * inputs:
@@ -33,18 +34,21 @@ bool hasInit (string fullString, string init) {
          * output:
          *      - if ending is the end of fullString
          */
-	if (fullString.length() >= init.length()) {
+	if (fullString.length() >= init.length())
+	{
 		return (0 == fullString.compare(
-				0,
-				init.length(),
-				init)
-			);
-	} else {
+						 0,
+						 init.length(),
+						 init));
+	}
+	else
+	{
 		return false;
 	}
 }
 
-bool hasEnding (string fullString, string ending) {
+bool hasEnding(string fullString, string ending)
+{
 	/* Choose Template: get the url of the choosed template
          *
          * inputs:
@@ -54,19 +58,22 @@ bool hasEnding (string fullString, string ending) {
          * output:
          *      - if ending is the end of fullString
          */
-	if (fullString.length() >= ending.length()) {
+	if (fullString.length() >= ending.length())
+	{
 		return (0 == fullString.compare(
-				fullString.length() - ending.length(),
-				ending.length(),
-				ending)
-			);
-	} else {
+						 fullString.length() - ending.length(),
+						 ending.length(),
+						 ending));
+	}
+	else
+	{
 		return false;
 	}
 }
 
-string chooseTemplate (string givenTemplate, string token, string username) {
-        /* Choose Template: get the url of the choosed template
+string chooseTemplate(string givenTemplate, string token, string username)
+{
+	/* Choose Template: get the url of the choosed template
          *
          * inputs:
          *      - givenTemplate: the given template
@@ -76,7 +83,7 @@ string chooseTemplate (string givenTemplate, string token, string username) {
          * output:
          *      - template url
          */
-        // Local varible(s)
+	// Local varible(s)
 	string urlTemplate = givenTemplate;
 
 	// Elaborate
@@ -85,31 +92,37 @@ string chooseTemplate (string givenTemplate, string token, string username) {
 	replace(urlTemplate.begin(), urlTemplate.end(), ' ', '-');
 
 	// Add "-template" if not exists yet
-	if (!hasEnding(urlTemplate, "-template")) {
+	if (!hasEnding(urlTemplate, "-template"))
+	{
 		urlTemplate += "-template";
 	}
 
 	// Add initial part of the url
-	try {
-		if (urlTemplate.find('/') != string::npos) {
+	try
+	{
+		if (urlTemplate.find('/') != string::npos)
+		{
 			// External template
 			json data = jsonRequest(string("https:\u002F\u002Fapi.github.com/repos/") + urlTemplate, token, nullptr, "GET");
 			assert(data["private"].get<bool>());
 			urlTemplate = string("https:\u002F\u002F") + username + string(":") + token + string("@github.com/") + urlTemplate;
-		} else {
+		}
+		else
+		{
 			// Internal template
 			json data = jsonRequest(string("https:\u002F\u002Fapi.github.com/repos/createstructure/") + urlTemplate, token, nullptr, "GET");
 			assert(!data["private"].get<bool>());
 			urlTemplate = string("https:\u002F\u002Fgithub.com/createstructure/") + urlTemplate;
 		}
-	} catch (...) {
+	}
+	catch (...)
+	{
 		// If it's impossible to take given template, use the default one
 		urlTemplate = "https:\u002F\u002Fgithub.com/createstructure/default-template";
 	}
 
-        // Return
-        return urlTemplate;
+	// Return
+	return urlTemplate;
 }
-
 
 #endif

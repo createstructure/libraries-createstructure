@@ -29,5 +29,4 @@ using namespace std;
 // Definitions
 // #define DEBUG
 
-
 #endif

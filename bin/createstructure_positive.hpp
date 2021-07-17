@@ -20,7 +20,8 @@ bool isPositive(string str);
 bool isNegative(string str);
 
 // Function(s)
-bool isPositive (string str) {
+bool isPositive(string str)
+{
         /* Is Positive: check if a string is positive
          *
          * inputs:
@@ -30,13 +31,14 @@ bool isPositive (string str) {
          *      - true if the string is rappresents a positive value
          */
         // Local varible(s)
-        vector <string> positive = {"Y", "y", "Yes", "yes", "YES", "1"};
+        vector<string> positive = {"Y", "y", "Yes", "yes", "YES", "1"};
 
-	// Return if the given string is contained in the vector of positive answers
+        // Return if the given string is contained in the vector of positive answers
         return find(positive.begin(), positive.end(), str) != positive.end();
 }
 
-bool isNegative (string str) {
+bool isNegative(string str)
+{
         /* Is Negative: check if a string is negative
          *
          * inputs:
@@ -46,9 +48,9 @@ bool isNegative (string str) {
          *      - true if the string is rappresents a negative value
          */
         // Local varible(s)
-        vector <string> negative = {"N", "n", "No", "no", "NO", "0"};
+        vector<string> negative = {"N", "n", "No", "no", "NO", "0"};
 
-	// Return if the given string is contained in the vector of positive answers
+        // Return if the given string is contained in the vector of positive answers
         return find(negative.begin(), negative.end(), str) != negative.end();
 }
 
