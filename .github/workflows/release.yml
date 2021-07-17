@@ -27,6 +27,14 @@ jobs:
         git add *
         git commit -m "Update librerias"
         git push https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/createstructure/core-createstructure.git
+    - name: Update debian-createstructure
+      run: |
+        git clone https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/createstructure/debian-createstructure.git
+        cd debian-createstructure
+        git submodule update --init --remote --recursive --merge
+        git add *
+        git commit -m "Update librerias"
+        git push https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/createstructure/debian-createstructure.git
     - name: Update manager-createstructure
       run: |
         git clone https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/createstructure/manager-createstructure.git
