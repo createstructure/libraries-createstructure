@@ -8,6 +8,8 @@
 
 // Dependencies
 #include <bits/stdc++.h>
+#include <sys/reboot.h>
+#include <unistd.h>
 #include "json.hpp"
 #include "createstructure_rest.hpp"
 #include "createstructure_cryptation.hpp"
@@ -78,8 +80,10 @@ json decodeWork() {
 		// Check if it's time to reboot
 		chrono::duration<double, milli> tm = chrono::high_resolution_clock::now() - start;	// milliseconds
 		if (tm.count() > 60 * 1000) { // 43200000 = 12h in millisecond
-			system("sleep 1m; reboot"); // Reboot PC
-			sleep_for(6000s); // Stop the manager to avoid work interruption
+			sleep_for(60s);
+			sync();
+			reboot(RB_AUTOBOOT);
+			exit(0); // Stop the manager to avoid work interruption
 		}
 //	cout << "dec" << endl;
 #ifdef DEBUG
@@ -208,8 +212,8 @@ void superWork(string work, json workInfo) {
 	unordered_map <string, string> works = {
 			{"test", "echo test"},				// Test print
 			{"update", "apt update; apt full-upgrade -y; docker pull ghcr.io/createstructure/core-createstructure:latest"}, 	// Update apt packages
-			{"shutdown", "sleep 1m; shutdown"},		// Wait and shudown the server
-			{"reboot", "sleep 1m; reboot"}			// Wait and reboot the server
+			{"shutdown", "sleep 1m; shutdown"}//,		// Wait and shudown the server
+			//{"reboot", "sleep 1m; reboot"}			// Wait and reboot the server
 		};
 
 	// Mark the instruction as done
@@ -221,7 +225,13 @@ void superWork(string work, json workInfo) {
                 );
 
 	// Run instruction
-	system(works[work].c_str());
+	if (work == "reboot") {
+		sleep_for(60s);
+		sync();
+		reboot(RB_AUTOBOOT);
+	} else {
+		system(works[work].c_str());
+	}
 }
 
 json getSettings() {
