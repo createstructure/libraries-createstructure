@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Draw & update
       run: |
-        pip install networkx matplotlib -y
+        pip install networkx matplotlib
         cd bin
         python3 << EOF
         import networkx as nx
