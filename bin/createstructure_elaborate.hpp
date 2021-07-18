@@ -8,6 +8,7 @@
 
 // Dependencies
 #include <bits/stdc++.h>
+#include "createstructure_replace.hpp"
 
 // using ...
 using namespace std;
