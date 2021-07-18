@@ -9,6 +9,7 @@
 // Dependencies
 #include <bits/stdc++.h>
 #include "json.hpp"
+#include "createstructure_replace.hpp"
 
 // using ...
 using namespace std;
