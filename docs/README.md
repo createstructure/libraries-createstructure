@@ -13,6 +13,8 @@
 
 ## Description
 Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
+
+![dependeces](./dependeces.svg)
  
 ## Directories structure
 ```

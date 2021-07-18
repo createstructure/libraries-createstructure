@@ -1,0 +1,55 @@
+name: Publish librerias
+on: [push, workflow_dispatch]
+
+jobs:
+  graph:
+    runs-on: ubuntu-latest
+    environment:
+      name: graph
+    steps:
+    - uses: actions/checkout@v2
+    - name: Draw & update
+      run: |
+        pip install networkx matplotlib -y
+        cd bin
+        python3 << EOF
+        import networkx as nx
+        import matplotlib.pyplot as plt
+        import os
+        class draw:
+            def __init__(self):
+                self.get_dependences()
+                self.get_nodes()
+                self.inizialize_draw()
+                self.save("../docs/dependeces.svg")
+            def get_dependences(self):
+                self.dependences = {}
+                for filename in os.listdir(os.getcwd()):
+                    if filename not in ["draw.py", "json.hpp"]:
+                        with open(filename) as f:
+                            d = [i.replace("#include", "").replace(" ", "").replace("\"", "").replace("\n", "").replace(">", "").replace("<", "").split("//")[0] for i in f if "#include" in i]
+                            self.dependences[filename] = d           
+            def get_nodes(self):
+                self.nodes = set()
+                for k, v in self.dependences.items():
+                    self.nodes.add(k)
+                    for i in v: self.nodes.add(i)
+            def inizialize_draw(self):
+                self.g = nx.DiGraph()
+                self.g.add_nodes_from(list(self.nodes))
+                for file, dependences in self.dependences.items():
+                    for dependence in dependences:
+                        self.g.add_edge(file, dependence)
+            def save(self, filename):
+                nx.draw_circular(self.g, with_labels = True, font_size=2, node_color = "#0000000f", arrowsize = 2)
+                plt.draw()
+                plt.savefig(filename)
+        if __name__ == "__main__":
+            draw()
+        EOF
+        git config --global user.name 'DavideC03'
+        git config --global user.email 'help@castellanidavide.it'
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+        git checkout "${GITHUB_REF:11}"
+        git commit -am "Update graph image"
+        git push
