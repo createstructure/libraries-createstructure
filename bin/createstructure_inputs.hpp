@@ -24,7 +24,7 @@ class inputs
  */
 private:
     map<string, string> m;
-
+    string longVersion(string s);
 public:
     inputs(int argc, char *argv[]);
     string to_string();
@@ -47,13 +47,36 @@ inputs::inputs(int argc, char *argv[])
         if (tmp.rfind("-", 0) == 0 && i + 1 < argc && string(argv[i + 1]).rfind("-", 0) != 0)
         {
             string tmp2(argv[++i]);
-            m[tmp] = tmp2;
+            m[longVersion(tmp)] = tmp2;
         }
         else
         {
             if (tmp.rfind("-", 0) == 0)
-                m[tmp] = "1"; // true
+                m[longVersion(tmp)] = "1"; // true
         }
+    }
+}
+
+string inputs::longVersion(string s) {
+    /* Inputs Long Version: return the long version of given key, if it's possible
+	 *
+	 * inputs:
+	 * 	- s: the string to convert
+ 	 *
+	 * output:
+	 *	- the converted string if it was possible, in other cases the same string as the input
+	 */
+    map <string, string> convertion = {
+        {"-h", "--help"},
+        {"-l", "--login"},
+        {"-u", "--username"},
+        {"-t", "--token"}
+    };
+
+    if (convertion.find(s) == convertion.end()) {
+        return s;
+    } else {
+        return convertion[s];
     }
 }
 
@@ -99,8 +122,8 @@ string inputs::getValue(string key)
 	 * output:
 	 *	- the key value
 	 */
-    assert(exist(key));
-    return m[key];
+    assert(exist(longVersion(key)));
+    return m[longVersion(key)];
 }
 
 #endif
