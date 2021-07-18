@@ -47,6 +47,7 @@ jobs:
         if __name__ == "__main__":
             draw()
         EOF
+        cd ..
         git config --global user.name 'DavideC03'
         git config --global user.email 'help@castellanidavide.it'
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
