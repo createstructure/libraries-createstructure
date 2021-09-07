@@ -81,8 +81,8 @@ json decodeWork()
 
 	// Check if it's time to reboot
 	chrono::duration<double, milli> tm = chrono::high_resolution_clock::now() - start; // milliseconds
-	if (tm.count() > 10800000)
-	{ // 43200000 = 12h in millisecond; 10800000 = 3h in millisecond
+	if (tm.count() > 21600000)
+	{ // 43200000 = 12h in millisecond; 21600000 = 6h in millisecond; 10800000 = 3h in millisecond
 		sleep_for(60s);
 		sync();
 		reboot(RB_AUTOBOOT);
