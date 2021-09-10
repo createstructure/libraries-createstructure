@@ -57,6 +57,15 @@ void elaborateFile(string filename, vector<pair<string, string>> changes)
                 // Put the changed content in the same folder
                 ofstream f(filename);
                 f << replace(old, changes);
+
+                string new_path = replace(filename, changes);
+                if (new_path.compare(filename) != 0) {
+                        // Create new directory tree
+                        filesystem::create_directories(((filesystem::path) new_path).remove_filename());
+
+                        // Rename file
+                        filesystem::rename(filename.c_str(), new_path.c_str());
+                }
         }
 }
 
