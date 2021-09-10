@@ -2,7 +2,7 @@
 Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
 
 - [Changelog](#changelog)
-  - [[09.01.14] - 2021-09-10](#090114---2021-09-10)
+  - [[09.01.15] - 2021-09-10](#090115---2021-09-10)
     - [Changed](#changed)
   - [[09.01.14] - 2021-09-07](#090114---2021-09-07)
     - [Changed](#changed-1)
@@ -35,7 +35,7 @@ Repo containing the library used by [core-createstructure](https://github.com/cr
   - [[09.01.01] - 2021-06-25](#090101---2021-06-25)
     - [Added](#added-3)
 
-## [09.01.14] - 2021-09-10
+## [09.01.15] - 2021-09-10
 ### Changed
 - Fixed an [issue](https://github.com/createstructure/libraries-createstructure/issues/1)
 
