@@ -120,10 +120,10 @@ debian::debian(inputs i, setting s)
         "",
         payload,
         "POST");
-    if (r["message"].get<string>().compare("error") == 0) {
-        cout << getEmoji("X") << RED << " " << r["error"].get<string>() << RESET << endl;
+    if (r["message"].get<string>().compare(string("error")) == 0) {
+        cout << getEmoji("X") << RED << "\t" << r["error"].get<string>() << RESET << endl;
     } else {
-        cout << getEmoji("check") << GREEN << " " << r["message"].get<string>() << RESET << endl;
+        cout << getEmoji("check") << GREEN << "\t" << r["message"].get<string>() << RESET << endl;
     }
 #endif // DEBUG
 }
