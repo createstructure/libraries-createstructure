@@ -41,6 +41,9 @@ public:
 	Cryptation();
 	string decrypt(string data);
 	string encrypt(string data);
+
+	static string decrypt(string data, string privateKey);
+	static string encrypt(string data, string publicKey);
 };
 
 Cryptation::Cryptation(string privateKey, string publicKey)
@@ -250,4 +253,31 @@ string Cryptation::encrypt(string data)
 	return encrypted_string;
 }
 
+string Cryptation::decrypt(string data, string privateKey)
+{
+	/**
+	 * Decrypt a string.
+	 *
+	 * @param data: The string to decrypt.
+	 * @param privateKey: The private key to use.
+	 *
+	 * @return: The decrypted string.
+	 */
+
+	return Cryptation(privateKey, false).decrypt(data);
+}
+
+string Cryptation::encrypt(string data, string publicKey)
+{
+	/**
+	 * Encrypt a string.
+	 *
+	 * @param data: The string to encrypt.
+	 * @param publicKey: The public key to use.
+	 *
+	 * @return: The encrypted string.
+	 */
+
+	return Cryptation(publicKey, true).encrypt(data);
+}
 #endif

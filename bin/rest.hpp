@@ -56,6 +56,10 @@ public:
 	string textRequest();
 	json jsonRequest();
 	void request();
+
+	static string textRequest(string link, string token, json data, bool POST);
+	static json jsonRequest(string link, string token, json data, bool POST);
+	static void request(string link, string token, json data, bool POST);
 };
 
 // Function(s)
@@ -143,5 +147,33 @@ void Rest::request()
 	 * request: sends the request to the server and returns nothing
 	 */
 	Rest::textRequest();
+}
+
+string Rest::textRequest(string link, string token, json data, bool POST)
+{
+	/**
+	 * textRequest: sends the request to the server and returns the response
+	 *
+	 * @return: the response as a string
+	 */
+	return Rest(link, token, data, POST).textRequest();
+}
+
+json Rest::jsonRequest(string link, string token, json data, bool POST)
+{
+	/**
+	 * jsonRequest: sends the request to the server and returns the response
+	 *
+	 * @return: the response in json format
+	 */
+	return Rest(link, token, data, POST).jsonRequest();
+}
+
+void Rest::request(string link, string token, json data, bool POST)
+{
+	/**
+	 * request: sends the request to the server and returns nothing
+	 */
+	Rest(link, token, data, POST).request();
 }
 #endif
