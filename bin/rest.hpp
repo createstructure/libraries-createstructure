@@ -176,4 +176,6 @@ void Rest::request(string link, string token, json data, bool POST)
 	 */
 	Rest(link, token, data, POST).request();
 }
+
+#undef DEBUG
 #endif

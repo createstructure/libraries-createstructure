@@ -55,4 +55,6 @@ void Sleep::sleep(int seconds, int nanoseconds)
 
 	sleep_for(chrono::seconds(seconds) + chrono::nanoseconds(nanoseconds));
 }
+
+#undef DEBUG
 #endif

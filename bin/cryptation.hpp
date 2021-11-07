@@ -280,4 +280,6 @@ string Cryptation::encrypt(string data, string publicKey)
 
 	return Cryptation(publicKey, true).encrypt(data);
 }
+
+#undef DEBUG
 #endif
