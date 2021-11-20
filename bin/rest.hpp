@@ -26,26 +26,12 @@ using json = nlohmann::json;
 class Rest
 {
 private:
+	static size_t WriteCallback(char *contents, size_t size, size_t nmemb, void *userp);
+
 	string link = "";
 	string token = "";
 	json data = {};
 	bool POST = false;
-
-	static size_t WriteCallback(char *contents, size_t size, size_t nmemb, void *userp)
-	{
-		/**
-		 * Write callback function
-		 *
-		 * @param contents: pointer to the data to be written
-		 * @param size: size of the data to be written
-		 * @param nmemb: number of times the data is written
-		 * @param userp: pointer to the user data
-		 * @return message size
-		 * @note: this function is called by libcurl as soon as there is data to be written
-		 */
-		((string *)userp)->append((char *)contents, size * nmemb);
-		return size * nmemb;
-	}
 
 public:
 	Rest(string link, string token, json data, bool POST);
@@ -57,9 +43,9 @@ public:
 	json jsonRequest();
 	void request();
 
-	static string textRequest(string link, string token, json data, bool POST);
-	static json jsonRequest(string link, string token, json data, bool POST);
-	static void request(string link, string token, json data, bool POST);
+	static string textRequest(string link, string token = "", json data = {}, bool POST = false);
+	static json jsonRequest(string link, string token = "", json data = {}, bool POST = false);
+	static void request(string link, string token = "", json data = {}, bool POST = false);
 };
 
 // Function(s)
@@ -83,6 +69,22 @@ Rest::Rest(string link, string token, json data, bool POST)
 	cout << "data:" << Rest::data << endl;
 	cout << "POST:" << (Rest::POST ? "True" : "False") << endl;
 #endif // DEBUG
+}
+
+size_t Rest::WriteCallback(char *contents, size_t size, size_t nmemb, void *userp)
+{
+	/**
+	 * Write callback function
+	 *
+	 * @param contents: pointer to the data to be written
+	 * @param size: size of the data to be written
+	 * @param nmemb: number of times the data is written
+	 * @param userp: pointer to the user data
+	 * @return message size
+	 * @note: this function is called by libcurl as soon as there is data to be written
+	 */
+	((string *)userp)->append((char *)contents, size * nmemb);
+	return size * nmemb;
 }
 
 string Rest::textRequest()
