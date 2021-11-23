@@ -33,7 +33,8 @@ private:
 		{"-p", "--password"},
 		{"-t", "--token"},
 		{"-sn", "--server-name"},
-		{"-sp", "--server-password"}};
+		{"-sp", "--server-password"},
+		{"-r", "--repo-info"}};
 	map<string, string> m;
 
 	string longVersion(string s);
