@@ -100,7 +100,7 @@ jobs:
         EOF
     - name: CHANGELOG file
       run: |
-        cp repo/CHANGELOG.md wiki/CHANGELOG.md
+        cp repo/docs/CHANGELOG.md wiki/CHANGELOG.md
         cd wiki
         sed -i 's/Changelog/:octocat: Changelog :octocat:/g' changelog
         sed -i 's/# /## /g' changelog
