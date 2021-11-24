@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
   workflow_run:
     workflows: ["Dependeces Graph"]
+    branches: [$(echo ${GITHUB_REF#refs/heads/})]
     types:
       - completed
 
