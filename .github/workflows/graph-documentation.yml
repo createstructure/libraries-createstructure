@@ -10,7 +10,7 @@ jobs:
     - name: Initial setup
       run: |
         pip install networkx matplotlib
-        git clone --recurse-submodules --depth 1 https://$.GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git repo
+        git clone --recurse-submodules --depth 1 https://$.GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git -b $(echo ${GITHUB_REF#refs/heads/}) repo
     - name: Draw & update
       run: |
         cd repo/bin
