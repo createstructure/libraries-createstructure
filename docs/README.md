@@ -1,55 +1,122 @@
-# libraries-createstructure
-[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/libraries-createstructure/blob/main/docs/LICENSE) 
-![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat) 
-![Language C++](https://img.shields.io/badge/language-C++-yellowgreen?style=flat) 
-![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-Ubuntu-blue?style=flat) 
-[![On GitHub](https://img.shields.io/badge/on%20GitHub-True-green?style=flat&logo=github)](https://github.com/createstructure/librerias-createstructure)
+## :octocat: Description :octocat:
+Repo containing the library used by core-createstructure  manager-createstructure
+![createstructure/libraries-createstructure](https://opengraph.githubassets.com/72364e818bfdd65899ba491f253da3377f2e9cf314ae5c443bb79478a0cb5e75/createstructure/libraries-createstructure)
+## :octocat: Directory structure :octocat:
 
-## Table of contents
-- [libraries-createstructure](#libraries-createstructure)
-  - [Table of contents](#table-of-contents)
-  - [Description](#description)
-  - [Directories structure](#directories-structure)
+```
+../repo
+├── bin # source code
+│   ├── cryptation.hpp
+│   ├── emoji.hpp
+│   ├── inputs.hpp
+│   ├── json.hpp
+│   ├── positive.hpp
+│   ├── rest.hpp
+│   └── sleep.hpp
+└── docs # documentation
+    ├── CHANGELOG.md
+    ├── LICENSE
+    └── README.md
 
-## Description
+2 directories, 10 files
+```
+## :octocat: Changelog :octocat:
 Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
 
-![dependeces](./dependeces.svg)
- 
-## Directories structure
-```
-├── bin
-│   ├── createstructure_changes.hpp
-│   ├── createstructure_chooseTemplate.hpp
-│   ├── createstructure_cryptation.hpp
-│   ├── createstructure_download.hpp
-│   ├── createstructure_elaborate.hpp
-│   ├── createstructure_emoji.hpp
-│   ├── createstructure.hpp
-│   ├── createstructure_inputCheck.hpp
-│   ├── createstructure_memory.hpp
-│   ├── createstructure_positive.hpp
-│   ├── createstructure_replace.hpp
-│   ├── createstructure_rest.hpp
-│   ├── createstructure_split.hpp
-│   ├── createstructure_upload.hpp
-│   ├── createstructure_work.hpp
-│   └── json.hpp
-├── docs
-│   ├── CHANGELOG.md
-│   ├── LICENSE
-│   └── README.md
-├── .git
-│   └── ...
-└── .github
-    └── workflows
-        └── release.yml
+- [:octocat: Changelog :octocat:](#changelog)
+  - [[09.01.14] - 2021-09-07](#090114---2021-09-07)
+    - [Changed](#changed)
+  - [[09.01.13] - 2021-08-13](#090113---2021-08-13)
+    - [Changed](#changed-1)
+  - [[09.01.12] - 2021-07-18](#090112---2021-07-18)
+    - [Changed](#changed-2)
+  - [[09.01.11] - 2021-07-18](#090111---2021-07-18)
+    - [Added](#added)
+  - [[09.01.10] - 2021-07-18](#090110---2021-07-18)
+    - [Added](#added-1)
+    - [Changed](#changed-3)
+  - [[09.01.09] - 2021-07-17](#090109---2021-07-17)
+    - [Changed](#changed-4)
+  - [[09.01.08] - 2021-07-17](#090108---2021-07-17)
+    - [Added](#added-2)
+    - [Changed](#changed-5)
+  - [[09.01.07] - 2021-07-17](#090107---2021-07-17)
+    - [Changed](#changed-6)
+  - [[09.01.06] - 2021-07-15](#090106---2021-07-15)
+    - [Changed](#changed-7)
+  - [[09.01.05] - 2021-07-13](#090105---2021-07-13)
+    - [Changed](#changed-8)
+  - [[09.01.04] - 2021-07-07](#090104---2021-07-07)
+    - [Changed](#changed-9)
+  - [[09.01.03] - 2021-07-07](#090103---2021-07-07)
+    - [Changed](#changed-10)
+  - [[09.01.02] - 2021-07-04](#090102---2021-07-04)
+    - [Changed](#changed-11)
+  - [[09.01.01] - 2021-06-25](#090101---2021-06-25)
+    - [Added](#added-3)
 
-```
+### [09.01.14] - 2021-09-07
+#### Changed
+- Try to change reboot waiting-time (3h => 6h)
 
+### [09.01.13] - 2021-08-13
+#### Changed
+- Change reboot waiting-time (12h => 3h)
+
+### [09.01.12] - 2021-07-18
+#### Changed
+- Fixed a bug
+
+### [09.01.11] - 2021-07-18
+#### Added
+- Now it's easier to manage CLI inputs, the "createstructure_inputs.hpp" library now manage multiple ways to do the same thing (eg. -h is now equal to --help)
+
+### [09.01.10] - 2021-07-18
+#### Added
+- Some librerias by debian packaging
+#### Changed
+- Optimized importation
+
+### [09.01.09] - 2021-07-17
+#### Changed
+- Optimized files formattation
+
+### [09.01.08] - 2021-07-17
+#### Added
+- debian-createstructure update management
+#### Changed
+- Changed reboot instruction to "stable" version
+
+### [09.01.07] - 2021-07-17
+#### Changed
+- Changed reboot instruction to test bugs
+
+### [09.01.06] - 2021-07-15
+#### Changed
+- Changed reboot time to test bugs
+
+### [09.01.05] - 2021-07-13
+#### Changed
+- Fixed a bug
+
+### [09.01.04] - 2021-07-07
+#### Changed
+- Fixed a bug
+
+### [09.01.03] - 2021-07-07
+#### Changed
+- Optimized some librerias (for manager-createstructure)
+
+### [09.01.02] - 2021-07-04
+#### Changed
+- Optimized rest library
+
+### [09.01.01] - 2021-06-25
+#### Added
+- Initial version for this repo
 ---
-Made by Castellani Davide 
-If you have any problem please contact me:
-  - [Discussion](https://github.com/createstructure/createstructure/discussions)
-  - [Issue](https://github.com/createstructure/createstructure/issues) 
-  - [help@castellanidavide.it](mailto:help@castellanidavide.it)
+Made w/ :heart: by Castellani Davide
+
+If you want to contribute you can start with:
+- [Discussion](https://github.com/createstructure/libraries-createstructure/discussions)
+- [Issue](https://github.com/createstructure/libraries-createstructure/issues/new)
