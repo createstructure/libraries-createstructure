@@ -71,6 +71,7 @@ jobs:
         git clone --recurse-submodules --depth 1 https://$.GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.wiki.git wiki
         git clone --recurse-submodules --depth 1 https://$.GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git -b $(echo ${GITHUB_REF#refs/heads/}) repo
         rm -f wiki/*.md
+        rm -f wiki/*.svg
     - name: Home file
       run: |
         cd wiki
@@ -102,8 +103,8 @@ jobs:
       run: |
         cp repo/docs/CHANGELOG.md wiki/CHANGELOG.md
         cd wiki
-        sed -i 's/Changelog/:octocat: Changelog :octocat:/g' changelog
-        sed -i 's/# /## /g' changelog
+        sed -i 's/Changelog/:octocat: Changelog :octocat:/g' CHANGELOG.md
+        sed -i 's/# /## /g' CHANGELOG.md
     - name: Dependeces Graph file
       run: |
         cp repo/docs/dependencies.svg wiki/dependencies.svg
