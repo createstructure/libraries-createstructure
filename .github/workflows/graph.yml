@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: graph
-    steps:steps:
+    steps:
     - name: Initial setup
       run: |
         pip install networkx matplotlib
