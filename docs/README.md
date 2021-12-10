@@ -1,7 +1,12 @@
-## :octocat: Description :octocat:
+# debian-createstructure
+[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/libraries-createstructure/blob/v10-beta/docs/LICENSE)
+![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)
+![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) 
+
+##  Description 
 Repo containing the library used by core-createstructure  manager-createstructure
 ![createstructure/libraries-createstructure](https://opengraph.githubassets.com/72364e818bfdd65899ba491f253da3377f2e9cf314ae5c443bb79478a0cb5e75/createstructure/libraries-createstructure)
-## :octocat: Directory structure :octocat:
+##  Directory structure 
 
 ```
 ../repo
@@ -20,10 +25,10 @@ Repo containing the library used by core-createstructure  manager-createstructur
 
 2 directories, 10 files
 ```
-## :octocat: Changelog :octocat:
+##  Changelog 
 Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
 
-- [:octocat: Changelog :octocat:](#changelog)
+- [ Changelog ](#changelog)
   - [[09.01.14] - 2021-09-07](#090114---2021-09-07)
     - [Changed](#changed)
   - [[09.01.13] - 2021-08-13](#090113---2021-08-13)
