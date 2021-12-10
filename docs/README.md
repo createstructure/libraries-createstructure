@@ -1,33 +1,13 @@
-<<<<<<< HEAD
-# libraries-createstructure
-[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/libraries-createstructure/blob/main/docs/LICENSE) 
-![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat) 
-![Language C++](https://img.shields.io/badge/language-C++-yellowgreen?style=flat) 
-![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-Ubuntu-blue?style=flat) 
-[![On GitHub](https://img.shields.io/badge/on%20GitHub-True-green?style=flat&logo=github)](https://github.com/createstructure/librerias-createstructure)
-
-## Table of contents
-- [libraries-createstructure](#libraries-createstructure)
-  - [Table of contents](#table-of-contents)
-  - [Description](#description)
-  - [Directories structure](#directories-structure)
-
-## Description
-Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
- 
-## Directories structure
-=======
 # debian-createstructure
-[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/libraries-createstructure/blob/v10-beta/docs/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/libraries-createstructure/blob/main/docs/LICENSE)
 ![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)
 ![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) 
 
 ##  Description 
 Repo containing the library used by core-createstructure  manager-createstructure
-![createstructure/libraries-createstructure](https://opengraph.githubassets.com/72364e818bfdd65899ba491f253da3377f2e9cf314ae5c443bb79478a0cb5e75/createstructure/libraries-createstructure)
+![createstructure/libraries-createstructure](https://opengraph.githubassets.com/ecc96a7b211cee3cf9169144dc350c0b8cf4cb852eefe7392d090fa312db54cf/createstructure/libraries-createstructure)
 ##  Directory structure 
 
->>>>>>> v10-beta
 ```
 ../repo
 ├── bin # source code
@@ -49,41 +29,65 @@ Repo containing the library used by core-createstructure  manager-createstructur
 Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
 
 - [ Changelog ](#changelog)
+<<<<<<< HEAD
+  - [[09.01.17] - 2021-09-10](#090117---2021-09-10)
+=======
   - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.14] - 2021-09-07](#090114---2021-09-07)
+>>>>>>> v10-beta
     - [Changed](#changed)
-  - [[09.01.13] - 2021-08-13](#090113---2021-08-13)
+  - [[09.01.16] - 2021-09-10](#090116---2021-09-10)
     - [Changed](#changed-1)
-  - [[09.01.12] - 2021-07-18](#090112---2021-07-18)
+  - [[09.01.15] - 2021-09-10](#090115---2021-09-10)
     - [Changed](#changed-2)
+  - [[09.01.14] - 2021-09-07](#090114---2021-09-07)
+    - [Changed](#changed-3)
+  - [[09.01.13] - 2021-08-13](#090113---2021-08-13)
+    - [Changed](#changed-4)
+  - [[09.01.12] - 2021-07-18](#090112---2021-07-18)
+    - [Changed](#changed-5)
   - [[09.01.11] - 2021-07-18](#090111---2021-07-18)
     - [Added](#added)
   - [[09.01.10] - 2021-07-18](#090110---2021-07-18)
     - [Added](#added-1)
-    - [Changed](#changed-3)
+    - [Changed](#changed-6)
   - [[09.01.09] - 2021-07-17](#090109---2021-07-17)
-    - [Changed](#changed-4)
+    - [Changed](#changed-7)
   - [[09.01.08] - 2021-07-17](#090108---2021-07-17)
     - [Added](#added-2)
-    - [Changed](#changed-5)
-  - [[09.01.07] - 2021-07-17](#090107---2021-07-17)
-    - [Changed](#changed-6)
-  - [[09.01.06] - 2021-07-15](#090106---2021-07-15)
-    - [Changed](#changed-7)
-  - [[09.01.05] - 2021-07-13](#090105---2021-07-13)
     - [Changed](#changed-8)
-  - [[09.01.04] - 2021-07-07](#090104---2021-07-07)
+  - [[09.01.07] - 2021-07-17](#090107---2021-07-17)
     - [Changed](#changed-9)
-  - [[09.01.03] - 2021-07-07](#090103---2021-07-07)
+  - [[09.01.06] - 2021-07-15](#090106---2021-07-15)
     - [Changed](#changed-10)
-  - [[09.01.02] - 2021-07-04](#090102---2021-07-04)
+  - [[09.01.05] - 2021-07-13](#090105---2021-07-13)
     - [Changed](#changed-11)
+  - [[09.01.04] - 2021-07-07](#090104---2021-07-07)
+    - [Changed](#changed-12)
+  - [[09.01.03] - 2021-07-07](#090103---2021-07-07)
+    - [Changed](#changed-13)
+  - [[09.01.02] - 2021-07-04](#090102---2021-07-04)
+    - [Changed](#changed-14)
   - [[09.01.01] - 2021-06-25](#090101---2021-06-25)
     - [Added](#added-3)
 
+<<<<<<< HEAD
+### [09.01.17] - 2021-09-10
+#### Changed
+- Fixed a problem of an [issue](https://github.com/createstructure/libraries-createstructure/issues/1)
+
+### [09.01.16] - 2021-09-10
+#### Changed
+- Fixed an [issue](https://github.com/createstructure/libraries-createstructure/issues/2)
+
+### [09.01.15] - 2021-09-10
+#### Changed
+- Fixed an [issue](https://github.com/createstructure/libraries-createstructure/issues/1)
+=======
 ### [10.01.01] - 2021-12-10
 - [v10-beta (libraries-createstructure)](https://github.com/createstructure/libraries-createstructure/issues/3)
   - [Improve libraries management and distribution](https://github.com/createstructure/libraries-createstructure/issues/)
+>>>>>>> v10-beta
 
 ### [09.01.14] - 2021-09-07
 #### Changed
