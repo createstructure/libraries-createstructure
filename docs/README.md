@@ -5,7 +5,7 @@
 
 ##  Description 
 Repo containing the library used by core-createstructure  manager-createstructure
-![createstructure/libraries-createstructure](https://opengraph.githubassets.com/371644fca13c0637b2b6a3440b3f823c67e32a4d3a1b03d2db405847b9c3448e/createstructure/libraries-createstructure)
+![createstructure/libraries-createstructure](https://opengraph.githubassets.com/442ddaeca9a28fa92376eaf7c02c0d8606a088d595e74bb586700444ca5fe8bf/createstructure/libraries-createstructure)
 ##  Directory structure 
 
 ```
