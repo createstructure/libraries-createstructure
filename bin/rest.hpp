@@ -106,6 +106,7 @@ string Rest::textRequest()
 	if (Rest::token != "")
 		slist1 = curl_slist_append(slist1, (string("Authorization: token ") + Rest::token).c_str());
 	slist1 = curl_slist_append(slist1, "Content-Type: application/json");
+	slist1 = curl_slist_append(slist1, "Accept: application/json");
 
 	// Setup curl call
 	curl = curl_easy_init();
