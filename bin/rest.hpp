@@ -103,10 +103,12 @@ string Rest::textRequest()
 
 	// Setting header
 	slist1 = NULL;
-	if (Rest::token != "")
+	if (Rest::token != "" && !Rest::token.empty()) {
 		slist1 = curl_slist_append(slist1, (string("Authorization: token ") + Rest::token).c_str());
+	}
 	slist1 = curl_slist_append(slist1, "Content-Type: application/json");
 	slist1 = curl_slist_append(slist1, "Accept: application/json");
+	slist1 = curl_slist_append(slist1, "Accept: application/vnd.github.v3+json");
 
 	// Setup curl call
 	curl = curl_easy_init();
