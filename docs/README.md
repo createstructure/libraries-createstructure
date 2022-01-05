@@ -5,7 +5,7 @@
 
 ##  Description 
 Repo containing the library used by core-createstructure  manager-createstructure
-![createstructure/libraries-createstructure](https://opengraph.githubassets.com/46f142ce2daef618a3705ff1a66cfee43feb49461ff2c751205b7cc9690f3d03/createstructure/libraries-createstructure)
+![createstructure/libraries-createstructure](https://opengraph.githubassets.com/66b7aa8a345675af1fb45d2c7ec3ec1d6ee6fd35686fda42eeb9991a32f3547a/createstructure/libraries-createstructure)
 ##  Directory structure 
 
 ```
@@ -29,6 +29,7 @@ Repo containing the library used by core-createstructure  manager-createstructur
 Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
 
 - [ Changelog ](#changelog)
+  - [[10.01.03] - 2022-01-05](#100103---2022-01-05)
   - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.17] - 2021-09-10](#090117---2021-09-10)
     - [Changed](#changed)
@@ -66,6 +67,9 @@ Repo containing the library used by [core-createstructure](https://github.com/cr
     - [Changed](#changed-14)
   - [[09.01.01] - 2021-06-25](#090101---2021-06-25)
     - [Added](#added-3)
+
+### [10.01.03] - 2022-01-05
+- [Add sponsorship button](https://github.com/createstructure/createstructure.github.io/issues/36)
 
 ### [10.01.01] - 2021-12-10
 - [v10-beta (libraries-createstructure)](https://github.com/createstructure/libraries-createstructure/issues/3)
