@@ -2,7 +2,7 @@
 Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
 
 - [Changelog](#changelog)
-  - [[10.01.03] - 2022-01-05](#100103---2022-01-05)
+  - [[10.01.02] - 2022-01-05](#100102---2022-01-05)
   - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.17] - 2021-09-10](#090117---2021-09-10)
     - [Changed](#changed)
@@ -41,7 +41,7 @@ Repo containing the library used by [core-createstructure](https://github.com/cr
   - [[09.01.01] - 2021-06-25](#090101---2021-06-25)
     - [Added](#added-3)
 
-## [10.01.03] - 2022-01-05
+## [10.01.02] - 2022-01-05
 - [Add sponsorship button](https://github.com/createstructure/createstructure.github.io/issues/36)
 
 ## [10.01.01] - 2021-12-10
