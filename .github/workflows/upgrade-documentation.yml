@@ -78,7 +78,18 @@ jobs:
         if __name__ == "__main__":
           open("Home.md", "w+").write(str(get_content()))                    
         EOF
+    - name: Class UML file
+      run: |
+        cd wiki
+        echo "## :octocat: Class UML :octocat:" > Class-UML.md
+        echo "![Class UML](https://raw.githubusercontent.com/createstructure/librerias-createstructure/$(echo ${GITHUB_REF#refs/heads/})/docs/librerias-createstructure-Class-uml.svg)" >> Class-UML.md
     - name: CHANGELOG file
+      run: |
+        cp repo/docs/CHANGELOG.md wiki/CHANGELOG.md
+        cd wiki
+        sed -i 's/Changelog/:octocat: Changelog :octocat:/g' CHANGELOG.md
+        sed -i 's/# /## /g' CHANGELOG.md
+    - name:  file
       run: |
         cp repo/docs/CHANGELOG.md wiki/CHANGELOG.md
         cd wiki
@@ -117,6 +128,7 @@ jobs:
       run: |
         cat wiki/_Header.md > repo/docs/README.md
         cat wiki/Home.md >> repo/docs/README.md
+        cat wiki/Class-UML.md >> repo/docs/README.md
         cat wiki/Directory-Structure.md >> repo/docs/README.md
         cat wiki/CHANGELOG.md >> repo/docs/README.md
         cat wiki/_Footer.md >> repo/docs/README.md
