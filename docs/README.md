@@ -21,9 +21,12 @@ Repo containing the library used by core-createstructure  manager-createstructur
 └── docs # documentation
     ├── CHANGELOG.md
     ├── LICENSE
-    └── README.md
+    ├── README.md
+    ├── docs # documentation
+    │   └── libraries-createstructure-Class-UML.svg
+    └── libraries-createstructure.drawio
 
-2 directories, 10 files
+3 directories, 12 files
 ```
 ##  Changelog 
 Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
