@@ -7,7 +7,7 @@
 Repo containing the library used by core-createstructure  manager-createstructure
 ![createstructure/libraries-createstructure](https://opengraph.githubassets.com/436fc4cbeb544e799612a4fa3c06f793a5f2031eb62d88fbe08daa252d7f8ec6/createstructure/libraries-createstructure)
 ##  Class UML 
-![Class UML](https://raw.githubusercontent.com/createstructure/createstructure/libraries-createstructure/UML-beta/docs/createstructure/libraries-createstructure-Class-UML.svg)
+![Class UML](https://raw.githubusercontent.com/createstructure/libraries-createstructure/UML-beta/docs/libraries-createstructure-Class-UML.svg)
 ##  Directory structure 
 
 ```
