@@ -1,11 +1,13 @@
 # debian-createstructure
-[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/libraries-createstructure/blob/main/docs/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/libraries-createstructure/blob/UML-beta/docs/LICENSE)
 ![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)
 ![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) 
 
 ##  Description 
 Repo containing the library used by core-createstructure  manager-createstructure
-![createstructure/libraries-createstructure](https://opengraph.githubassets.com/626e3b763debefc0fcbda458a379f3cc00c23e7debc2fc61a135bb00872358ec/createstructure/libraries-createstructure)
+![createstructure/libraries-createstructure](https://opengraph.githubassets.com/436fc4cbeb544e799612a4fa3c06f793a5f2031eb62d88fbe08daa252d7f8ec6/createstructure/libraries-createstructure)
+##  Class UML 
+![Class UML](https://raw.githubusercontent.com/createstructure/libraries-createstructure/UML-beta/docs/libraries-createstructure-Class-UML.svg)
 ##  Directory structure 
 
 ```
@@ -21,9 +23,11 @@ Repo containing the library used by core-createstructure  manager-createstructur
 └── docs # documentation
     ├── CHANGELOG.md
     ├── LICENSE
-    └── README.md
+    ├── README.md
+    ├── libraries-createstructure-Class-UML.svg
+    └── libraries-createstructure.drawio
 
-2 directories, 10 files
+2 directories, 12 files
 ```
 ##  Changelog 
 Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
