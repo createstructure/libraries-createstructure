@@ -1,5 +1,5 @@
 # debian-createstructure
-[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/libraries-createstructure/blob/UML-beta/docs/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/libraries-createstructure/blob/main/docs/LICENSE)
 ![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)
 ![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) 
 
@@ -7,7 +7,7 @@
 Repo containing the library used by core-createstructure  manager-createstructure
 ![createstructure/libraries-createstructure](https://opengraph.githubassets.com/436fc4cbeb544e799612a4fa3c06f793a5f2031eb62d88fbe08daa252d7f8ec6/createstructure/libraries-createstructure)
 ##  Class UML 
-![Class UML](https://raw.githubusercontent.com/createstructure/libraries-createstructure/UML-beta/docs/libraries-createstructure-Class-UML.svg)
+![Class UML](https://raw.githubusercontent.com/createstructure/libraries-createstructure/main/docs/libraries-createstructure-Class-UML.svg)
 ##  Directory structure 
 
 ```
@@ -33,6 +33,7 @@ Repo containing the library used by core-createstructure  manager-createstructur
 Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
 
 - [ Changelog ](#changelog)
+  - [[10.01.03] - 2022-03-12](#100103---2022-03-12)
   - [[10.01.02] - 2022-01-05](#100102---2022-01-05)
   - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.17] - 2021-09-10](#090117---2021-09-10)
@@ -71,6 +72,9 @@ Repo containing the library used by [core-createstructure](https://github.com/cr
     - [Changed](#changed-14)
   - [[09.01.01] - 2021-06-25](#090101---2021-06-25)
     - [Added](#added-3)
+
+### [10.01.03] - 2022-03-12
+- [Added charts automation](https://github.com/createstructure/libraries-createstructure/issues/7)
 
 ### [10.01.02] - 2022-01-05
 - [Add sponsorship button](https://github.com/createstructure/createstructure.github.io/issues/36)
