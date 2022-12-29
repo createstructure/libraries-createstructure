@@ -27,7 +27,7 @@ Inputs::Inputs(int argc, char *argv[])
 	 * @param argc: number of arguments
 	 * @param argv: array of arguments
 	 */
-	for (size_t i = 1; i < argc; ++i)
+	for (int i = 1; i < argc; ++i)
 	{
 		string tmp(argv[i]);
 		if (tmp.rfind("-", 0) == 0)
