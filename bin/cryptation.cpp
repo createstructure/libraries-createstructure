@@ -210,7 +210,7 @@ string Cryptation::encrypt(string data)
 
 	// Avoid errors correlated with \0 char
 	string tmp = "";
-	for (size_t i = 0; i < rsa_len; i++)
+	for (int i = 0; i < rsa_len; i++)
 		tmp += encrypted[i];
 
 	string encrypted_string = Cryptation::base64_encode(tmp);

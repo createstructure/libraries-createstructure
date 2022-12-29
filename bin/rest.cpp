@@ -59,7 +59,6 @@ string Rest::textRequest()
 	 */
 	// Function variable(s)
 	CURL *curl;
-	CURLcode res;
 	string readBuffer = "";
 	struct curl_slist *slist1;
 	string data = Rest::data.dump();
@@ -87,7 +86,7 @@ string Rest::textRequest()
 		curl_easy_setopt(curl, CURLOPT_TCP_KEEPALIVE, 1L);
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, Rest::WriteCallback);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
-		res = curl_easy_perform(curl);
+		curl_easy_perform(curl);
 		curl_easy_cleanup(curl);
 	}
 

@@ -13,6 +13,7 @@
 // Dependencies
 #include <iostream>
 #include <string>
+#include <vector>
 #include <openssl/pem.h>
 #include <openssl/ssl.h>
 #include <openssl/rsa.h>
