@@ -12,13 +12,20 @@ Repo containing the library used by core-createstructure  manager-createstructur
 
 ```
 ../repo
+├── Makefile
 ├── bin # source code
+│   ├── cryptation.cpp
 │   ├── cryptation.hpp
+│   ├── emoji.cpp
 │   ├── emoji.hpp
+│   ├── inputs.cpp
 │   ├── inputs.hpp
 │   ├── json.hpp
+│   ├── positive.cpp
 │   ├── positive.hpp
+│   ├── rest.cpp
 │   ├── rest.hpp
+│   ├── sleep.cpp
 │   └── sleep.hpp
 └── docs # documentation
     ├── CHANGELOG.md
@@ -27,51 +34,55 @@ Repo containing the library used by core-createstructure  manager-createstructur
     ├── libraries-createstructure-Class-UML.svg
     └── libraries-createstructure.drawio
 
-2 directories, 12 files
+2 directories, 19 files
 ```
 ##  Changelog 
 Repo containing the library used by [core-createstructure](https://github.com/createstructure/core-createstructure) & [manager-createstructure](https://github.com/createstructure/manager-createstructure)
 
 - [ Changelog ](#changelog)
-  - [[10.01.03] - 2022-03-12](#100103---2022-03-12)
-  - [[10.01.02] - 2022-01-05](#100102---2022-01-05)
-  - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
-  - [[09.01.17] - 2021-09-10](#090117---2021-09-10)
+  - [\[10.01.04\] - 2023-01-26](#100104---2023-01-26)
+  - [\[10.01.03\] - 2022-03-12](#100103---2022-03-12)
+  - [\[10.01.02\] - 2022-01-05](#100102---2022-01-05)
+  - [\[10.01.01\] - 2021-12-10](#100101---2021-12-10)
+  - [\[09.01.17\] - 2021-09-10](#090117---2021-09-10)
     - [Changed](#changed)
-  - [[09.01.16] - 2021-09-10](#090116---2021-09-10)
+  - [\[09.01.16\] - 2021-09-10](#090116---2021-09-10)
     - [Changed](#changed-1)
-  - [[09.01.15] - 2021-09-10](#090115---2021-09-10)
+  - [\[09.01.15\] - 2021-09-10](#090115---2021-09-10)
     - [Changed](#changed-2)
-  - [[09.01.14] - 2021-09-07](#090114---2021-09-07)
+  - [\[09.01.14\] - 2021-09-07](#090114---2021-09-07)
     - [Changed](#changed-3)
-  - [[09.01.13] - 2021-08-13](#090113---2021-08-13)
+  - [\[09.01.13\] - 2021-08-13](#090113---2021-08-13)
     - [Changed](#changed-4)
-  - [[09.01.12] - 2021-07-18](#090112---2021-07-18)
+  - [\[09.01.12\] - 2021-07-18](#090112---2021-07-18)
     - [Changed](#changed-5)
-  - [[09.01.11] - 2021-07-18](#090111---2021-07-18)
+  - [\[09.01.11\] - 2021-07-18](#090111---2021-07-18)
     - [Added](#added)
-  - [[09.01.10] - 2021-07-18](#090110---2021-07-18)
+  - [\[09.01.10\] - 2021-07-18](#090110---2021-07-18)
     - [Added](#added-1)
     - [Changed](#changed-6)
-  - [[09.01.09] - 2021-07-17](#090109---2021-07-17)
+  - [\[09.01.09\] - 2021-07-17](#090109---2021-07-17)
     - [Changed](#changed-7)
-  - [[09.01.08] - 2021-07-17](#090108---2021-07-17)
+  - [\[09.01.08\] - 2021-07-17](#090108---2021-07-17)
     - [Added](#added-2)
     - [Changed](#changed-8)
-  - [[09.01.07] - 2021-07-17](#090107---2021-07-17)
+  - [\[09.01.07\] - 2021-07-17](#090107---2021-07-17)
     - [Changed](#changed-9)
-  - [[09.01.06] - 2021-07-15](#090106---2021-07-15)
+  - [\[09.01.06\] - 2021-07-15](#090106---2021-07-15)
     - [Changed](#changed-10)
-  - [[09.01.05] - 2021-07-13](#090105---2021-07-13)
+  - [\[09.01.05\] - 2021-07-13](#090105---2021-07-13)
     - [Changed](#changed-11)
-  - [[09.01.04] - 2021-07-07](#090104---2021-07-07)
+  - [\[09.01.04\] - 2021-07-07](#090104---2021-07-07)
     - [Changed](#changed-12)
-  - [[09.01.03] - 2021-07-07](#090103---2021-07-07)
+  - [\[09.01.03\] - 2021-07-07](#090103---2021-07-07)
     - [Changed](#changed-13)
-  - [[09.01.02] - 2021-07-04](#090102---2021-07-04)
+  - [\[09.01.02\] - 2021-07-04](#090102---2021-07-04)
     - [Changed](#changed-14)
-  - [[09.01.01] - 2021-06-25](#090101---2021-06-25)
+  - [\[09.01.01\] - 2021-06-25](#090101---2021-06-25)
     - [Added](#added-3)
+
+### [10.01.04] - 2023-01-26
+- [Split .hpp files into modules (.hpp and .cpp)](https://github.com/createstructure/libraries-createstructure/issues/9)
 
 ### [10.01.03] - 2022-03-12
 - [Added charts automation](https://github.com/createstructure/libraries-createstructure/issues/7)
