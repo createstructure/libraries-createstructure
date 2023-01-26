@@ -1,7 +1,7 @@
 /**
- * sleep.cpp
+ * @file sleep.cpp
  *
- * Library for sleep.
+ * @brief Library for sleep.
  *
  * @author Castellani Davide (@DavideC03)
  */
@@ -12,28 +12,24 @@
 // Definitions
 // #define DEBUG
 
+/**
+ * @brief Sleep for a given amount of time
+ *
+ * @param seconds The amount of seconds to sleep
+ */
 void Sleep::sleep(int seconds)
 {
-	/**
-	 * Sleep for a given amount of time.
-	 * 
-	 * @param seconds The amount of time to sleep.
-	 * 
-	 */
-
 	sleep_for(chrono::seconds(seconds));
 }
 
+/**
+ * @brief Sleep for a given amount of time.
+ *
+ * @param seconds The amount of seconds to sleep
+ * @param nanoseconds The amount of milliseconds to sleep, over the seconds
+ */
 void Sleep::sleep(int seconds, int nanoseconds)
 {
-	/**
-	 * Sleep for a given amount of time.
-	 * 
-	 * @param seconds The amount of time to sleep.
-	 * @param nanoseconds The amount of time to sleep.
-	 * 
-	 */
-
 	sleep_for(chrono::seconds(seconds) + chrono::nanoseconds(nanoseconds));
 }
 

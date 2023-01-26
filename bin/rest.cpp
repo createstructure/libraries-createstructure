@@ -1,7 +1,7 @@
 /**
- * Rest.cpp
+ * @file Rest.cpp
  *
- * This library is used to send and receive data from a REST API.
+ * @brief This library is used to send and receive data from a REST API.
  *
  * @author: Castellani Davide (@DavideC03)
  */
@@ -12,15 +12,15 @@
 // Definitions
 // #define DEBUG
 
+/** @brief Constructor of the Rest class
+ *
+ * @param link The link to the server
+ * @param token The token to be used
+ * @param data The data to be sent
+ * @param POST True if the request is a POST, False if it's a GET
+ */
 Rest::Rest(string link, string token, json data, bool POST)
 {
-	/** Rest Constructor: the constructor of the Rest class
-	 *
-	 * @param link: the link to the server
-	 * @param token: the token to be used
-	 * @param data: the data to be sent
-	 * @param POST: if the request is a POST or a GET
-	 */
 	Rest::link = link;
 	Rest::token = token;
 	Rest::data = data;
@@ -34,29 +34,29 @@ Rest::Rest(string link, string token, json data, bool POST)
 #endif // DEBUG
 }
 
+/**
+ * @brief Write callback function
+ * @note This function is called by libcurl as soon as there is data to be written
+ *
+ * @param contents Pointer to the data to be written
+ * @param size Size of the data to be written
+ * @param nmemb Number of times the data is written
+ * @param userp Pointer to the user data
+ * @return size_t Message size
+ */
 size_t Rest::WriteCallback(char *contents, size_t size, size_t nmemb, void *userp)
 {
-	/**
-	 * Write callback function
-	 *
-	 * @param contents: pointer to the data to be written
-	 * @param size: size of the data to be written
-	 * @param nmemb: number of times the data is written
-	 * @param userp: pointer to the user data
-	 * @return message size
-	 * @note: this function is called by libcurl as soon as there is data to be written
-	 */
 	((string *)userp)->append((char *)contents, size * nmemb);
 	return size * nmemb;
 }
 
+/**
+ * @brief Sends the request to the server and returns the response
+ *
+ * @return string The response as a string
+ */
 string Rest::textRequest()
 {
-	/**
-	 * textRequest: sends the request to the server and returns the response
-	 *
-	 * @return: the response as a string
-	 */
 	// Function variable(s)
 	CURL *curl;
 	string readBuffer = "";
@@ -65,7 +65,8 @@ string Rest::textRequest()
 
 	// Setting header
 	slist1 = NULL;
-	if (Rest::token != "" && !Rest::token.empty()) {
+	if (Rest::token != "" && !Rest::token.empty())
+	{
 		slist1 = curl_slist_append(slist1, (string("Authorization: token ") + Rest::token).c_str());
 	}
 	slist1 = curl_slist_append(slist1, "Content-Type: application/json");
@@ -94,13 +95,13 @@ string Rest::textRequest()
 	return readBuffer;
 }
 
+/**
+ * @brief Sends the request to the server and returns the response
+ *
+ * @return json The response in json format
+ */
 json Rest::jsonRequest()
 {
-	/**
-	 * jsonRequest: sends the request to the server and returns the response
-	 *
-	 * @return: the response in json format
-	 */
 	// Function variable(s)
 	json response = json::parse(Rest::textRequest());
 
@@ -108,39 +109,39 @@ json Rest::jsonRequest()
 	return response;
 }
 
+/**
+ * @brief Sends the request to the server and returns nothing
+ */
 void Rest::request()
 {
-	/**
-	 * request: sends the request to the server and returns nothing
-	 */
 	Rest::textRequest();
 }
 
+/**
+ * @brief Sends the request to the server and returns the response, without constructor
+ *
+ * @return string the response as a string
+ */
 string Rest::textRequest(string link, string token, json data, bool POST)
 {
-	/**
-	 * textRequest: sends the request to the server and returns the response
-	 *
-	 * @return: the response as a string
-	 */
 	return Rest(link, token, data, POST).textRequest();
 }
 
+/**
+ * Sends the request to the server and returns the response, without constructor
+ *
+ * @return json The response in json format
+ */
 json Rest::jsonRequest(string link, string token, json data, bool POST)
 {
-	/**
-	 * jsonRequest: sends the request to the server and returns the response
-	 *
-	 * @return: the response in json format
-	 */
 	return Rest(link, token, data, POST).jsonRequest();
 }
 
+/**
+ * @brief Sends the request to the server and returns nothing, without constructor
+ */
 void Rest::request(string link, string token, json data, bool POST)
 {
-	/**
-	 * request: sends the request to the server and returns nothing
-	 */
 	Rest(link, token, data, POST).request();
 }
 

@@ -1,8 +1,8 @@
 /**
- * emoji.cpp
- * 
- * Library for handling emoji.
- * 
+ * @file emoji.cpp
+ *
+ * @brief Library for handling emoji.
+ *
  * @author Castellani Davide (@DavideC03)
  */
 
@@ -2847,17 +2847,21 @@ map<string, string> Emoji::emoji_map =
 	 {"秘", "㊙️"},
 	 {"空", "🈳"}};
 
-string Emoji::getEmoji(string emoji_name) {
-	/**
-	 * Get the emoji from the emoji_name
-	 * 
-	 * @param emoji_name The name of the emoji
-	 * @return The emoji or an empty string if not found
-	 */
+/**
+ * @brief Get the emoji from the emoji_name
+ *
+ * @param emoji_name The name of the emoji
+ * @return string The emoji or an empty string if not found
+ */
+string Emoji::getEmoji(string emoji_name)
+{
 
-	if (emoji_map.find(emoji_name) != emoji_map.end()) {
+	if (emoji_map.find(emoji_name) != emoji_map.end())
+	{
 		return emoji_map[emoji_name];
-	} else {
+	}
+	else
+	{
 		return "";
 	}
 }

@@ -1,7 +1,7 @@
 /**
- * cryptation.cpp
+ * @file cryptation.cpp
  *
- * Library to manage the cryptation of data.
+ * @brief Library to manage the cryptation of data.
  *
  * @author: Castellani Davide (@DavideC03)
  */
@@ -12,28 +12,26 @@
 // Definitions
 // #define DEBUG
 
+/**
+ * @brief Constructor
+ *
+ * @param privateKey Private key to use for decryption
+ * @param publicKey Public key to use for encryption
+ */
 Cryptation::Cryptation(string privateKey, string publicKey)
 {
-	/**
-	 * Constructor
-	 *
-	 * @param privateKey: The private key to use for decryption.
-	 * @param publicKey: The public key to use for encryption.
-	 */
-
 	this->privateKey = privateKey;
 	this->publicKey = publicKey;
 }
 
+/**
+ * @brief Constructor
+ *
+ * @param privateKey Private key to use for decryption
+ * @param isPublic True if the private key is the public key, false otherwise
+ */
 Cryptation::Cryptation(string privateKey, bool isPublic)
 {
-	/**
-	 * Constructor
-	 *
-	 * @param privateKey: The private key to use for decryption.
-	 * @param isPublic: If true, the private key is the public key.
-	 */
-
 	if (isPublic)
 	{
 		this->privateKey = "";
@@ -46,19 +44,23 @@ Cryptation::Cryptation(string privateKey, bool isPublic)
 	}
 }
 
+/**
+ * @brief Empty constructor
+ */
 Cryptation::Cryptation()
 {
-	/**
-	 * Constructor
-	 */
-
 	this->privateKey = "";
 	this->publicKey = "";
 }
 
+/**
+ * @brief Encode using base64
+ *
+ * @param in Input string
+ * @return string base64 of the string
+ */
 string Cryptation::base64_encode(const string &in)
 {
-
 	string out;
 
 	int val = 0, valb = -6;
@@ -79,12 +81,17 @@ string Cryptation::base64_encode(const string &in)
 	return out;
 }
 
+/**
+ * @brief Decode using base64
+ *
+ * @param in Input string
+ * @return string Decoded string
+ */
 string Cryptation::base64_decode(const string &in)
 {
-
 	string out;
-
 	vector<int> T(256, -1);
+
 	for (int i = 0; i < 64; i++)
 		T["ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"[i]] = i;
 
@@ -104,20 +111,19 @@ string Cryptation::base64_decode(const string &in)
 	return out;
 }
 
+/**
+ * @brief Create a RSA object from a key
+ *
+ * @param key The key to use
+ * @param isPublic True if the key is public, False id the key is private
+ * @return RSA* The RSA object
+ */
 RSA *Cryptation::createRSA(string key, bool isPublic)
 {
-	/**
-	 * Create a RSA object from a key.
-	 *
-	 * @param key: The key to use.
-	 * @param isPublic: If the key is public or private.
-	 *
-	 * @return: The RSA object.
-	 */
-
 	RSA *rsa = NULL;
 	BIO *keybio;
 	keybio = BIO_new_mem_buf((unsigned char *)key.c_str(), -1);
+
 	if (keybio == NULL)
 	{
 #ifdef DEBUG
@@ -143,16 +149,14 @@ RSA *Cryptation::createRSA(string key, bool isPublic)
 	return rsa;
 }
 
+/**
+ * @brief Decrypt a string
+ *
+ * @param data The string to decrypt
+ * @return string The decrypted string
+ */
 string Cryptation::decrypt(string data)
 {
-	/**
-	 * Decrypt a string.
-	 *
-	 * @param data: The string to decrypt.
-	 *
-	 * @return: The decrypted string.
-	 */
-
 	data = Cryptation::base64_decode(data);
 	RSA *rsa = createRSA(Cryptation::privateKey, false);
 	if (rsa == NULL)
@@ -179,15 +183,14 @@ string Cryptation::decrypt(string data)
 	return decrypted_string;
 }
 
+/**
+ * @brief Encrypt a string
+ *
+ * @param data The string to encrypt
+ * @return string The encrypted string
+ */
 string Cryptation::encrypt(string data)
 {
-	/**
-	 * Encrypt a string.
-	 *
-	 * @param data: The string to encrypt.
-	 *
-	 * @return: The encrypted string.
-	 */
 	RSA *rsa = createRSA(Cryptation::publicKey, true);
 	if (rsa == NULL)
 	{
@@ -219,31 +222,29 @@ string Cryptation::encrypt(string data)
 	return encrypted_string;
 }
 
+/**
+ * @brief Decrypt a string
+ *
+ * @param data The string to decrypt
+ * @param privateKey The private key to use
+ *
+ * @return string The decrypted string
+ */
 string Cryptation::decrypt(string data, string privateKey)
 {
-	/**
-	 * Decrypt a string.
-	 *
-	 * @param data: The string to decrypt.
-	 * @param privateKey: The private key to use.
-	 *
-	 * @return: The decrypted string.
-	 */
-
 	return Cryptation(privateKey, false).decrypt(data);
 }
 
+/**
+ * @brief Encrypt a string
+ *
+ * @param data The string to encrypt
+ * @param publicKey The public key to use
+ *
+ * @return string The encrypted string
+ */
 string Cryptation::encrypt(string data, string publicKey)
 {
-	/**
-	 * Encrypt a string.
-	 *
-	 * @param data: The string to encrypt.
-	 * @param publicKey: The public key to use.
-	 *
-	 * @return: The encrypted string.
-	 */
-
 	return Cryptation(publicKey, true).encrypt(data);
 }
 

@@ -1,8 +1,8 @@
 /**
- * positive.cpp
- * 
- * Library for checking if a string is positive or negative.
- * 
+ * @file positive.cpp
+ *
+ * @brief Library for checking if a string is positive or negative.
+ *
  * @author Castellani Davide (@DavideC03)
  */
 
@@ -12,29 +12,25 @@
 // Definitions
 // #define DEBUG
 
+/**
+ * @brief Check if the string is positive
+ *
+ * @param str String to check
+ * @return bool True if the string is positive,False otherwise
+ */
 bool Positive::isPositive(string str)
 {
-    /**
-     * Check if the string is positive
-     * 
-     * @param str string to check
-     * @return true if the string is positive, false otherwise
-     */
-
-    // Check if the string is in the vector
     return (find(Positive::positive.begin(), Positive::positive.end(), str) != Positive::positive.end());
 }
 
+/**
+ * @brief Check if the string is negative
+ *
+ * @param str String to check
+ * @return bool True if the string is negative, False otherwise
+ */
 bool Positive::isNegative(string str)
 {
-    /**
-     * Check if the string is negative
-     * 
-     * @param str string to check
-     * @return true if the string is negative, false otherwise
-     */
-
-    // Check if the string is in the vector
     return (find(Positive::negative.begin(), Positive::negative.end(), str) != Positive::negative.end());
 }
 

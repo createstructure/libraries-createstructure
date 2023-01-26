@@ -1,7 +1,7 @@
 /**
- * input.cpp
+ * @file inputs.cpp
  *
- * Library to manage inputs gived by the user.
+ * @brief Library to manage inputs gived by the user.
  *
  * @author Davide Castellani (@DavideC03)
  */
@@ -12,21 +12,21 @@
 // Definitions
 // #define DEBUG
 
+/**
+ * @brief Empty constructor
+ */
 Inputs::Inputs()
 {
-	/**
-	 * Empty constructor
-	 */
 }
 
+/**
+ * @brief Constructor
+ *
+ * @param argc Number of arguments
+ * @param argv Array of arguments
+ */
 Inputs::Inputs(int argc, char *argv[])
 {
-	/**
-	 * Constructor
-	 *
-	 * @param argc: number of arguments
-	 * @param argv: array of arguments
-	 */
 	for (int i = 1; i < argc; ++i)
 	{
 		string tmp(argv[i]);
@@ -45,15 +45,14 @@ Inputs::Inputs(int argc, char *argv[])
 	}
 }
 
+/**
+ * @brief Convert short version to long version if possible
+ *
+ * @param s The string to convert
+ * @return string If possible, the long version of the string, else the string itself
+ */
 string Inputs::longVersion(string s)
 {
-	/**
-	 * Long version: convert short version to long version if possible
-	 *
-	 * @param s: the string to convert
-	 *
-	 * @return if possible, the long version of the string, else the string itself
-	 */
 	if (Inputs::convertion.find(s) == Inputs::convertion.end())
 	{
 		return s;
@@ -64,57 +63,55 @@ string Inputs::longVersion(string s)
 	}
 }
 
+/**
+ * @brief Check if exist the asked key
+ *
+ * @param key The key to check
+ * @return bool True if the key exist, False otherwise
+ */
 bool Inputs::exist(string key)
 {
-	/**
-	 * Inputs Exist: check if exist the asked key
-	 *
-	 * @param key: the key to check
-	 *
-	 * @return true if the key exist, false otherwise
-	 */
 	return m.find(key) != m.end();
 }
 
+/**
+ * @brief Get the value of the asked key
+ *
+ * @param key The key to get the value
+ * @return string The value of the key
+ */
 string Inputs::getValue(string key)
 {
-	/**
-	 * Get Value: get the value of the asked key
-	 *
-	 * @param key: the key to get the value
-	 *
-	 * @return the value of the key
-	 */
 	assert(exist(longVersion(key)));
 	return m[longVersion(key)];
 }
 
+/**
+ * @brief Check if exist the asked key
+ *
+ * @param argc Number of arguments
+ * @param argv Array of arguments
+ * @param key The key to check
+ *
+ * @return bool True if the key exist, False otherwise
+ */
 bool Inputs::exist(int argc, char *argv[], string key)
 {
-	/**
-	 * Inputs Exist: check if exist the asked key
-	 *
-	 * @param argc: number of arguments
-	 * @param argv: array of arguments
-	 * @param key: the key to check
-	 *
-	 * @return true if the key exist, false otherwise
-	 */
 	Inputs inputs(argc, argv);
 	return inputs.exist(key);
 }
 
+/**
+ * @brief Get the value of the asked key
+ *
+ * @param argc Number of arguments
+ * @param argv Array of arguments
+ * @param key The key to get the value
+ *
+ * @return string The value of the key
+ */
 string Inputs::getValue(int argc, char *argv[], string key)
 {
-	/**
-	 * Get Value: get the value of the asked key
-	 *
-	 * @param argc: number of arguments
-	 * @param argv: array of arguments
-	 * @param key: the key to get the value
-	 *
-	 * @return the value of the key
-	 */
 	Inputs inputs(argc, argv);
 	return inputs.getValue(key);
 }
