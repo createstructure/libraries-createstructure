@@ -12,6 +12,8 @@
 
 // Dependencies
 #include <string>
+#include <vector>
+#include <algorithm>
 
 // using ...
 using namespace std;
@@ -19,6 +21,11 @@ using namespace std;
 class Positive
 {
 private:
+    // Vector with all the possible positive options
+    static const inline vector<string> positive = {"Y", "y", "Yes", "yes", "YES", "1"};
+    
+    // Vector with all the possible negative options
+    static const inline vector<string> negative = {"N", "n", "No", "no", "NO", "0"};
 public:
     static bool isPositive(string str);
     static bool isNegative(string str);
